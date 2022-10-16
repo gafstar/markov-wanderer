@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Markov Wanderer</title>
+<link>http://aeturrell.com/blog/index.html</link>
+<atom:link href="http://aeturrell.com/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description>A blog on economics, coding, and data science. Views are my own.</description>
+<generator>quarto-1.0.28</generator>
+<lastBuildDate>Sat, 15 Oct 2022 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/posts/post-with-code/index.html}</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>http://aeturrell.com/blog/posts/post-with-code/index.html</link>
+  <description>{B4F502887207:/posts/post-with-code/index.html}</description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>http://aeturrell.com/blog/posts/post-with-code/index.html</guid>
+  <pubDate>Sat, 15 Oct 2022 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/welcome/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/welcome/index.html</link>
+  <description>{B4F502887207:/posts/welcome/index.html}</description>
+  <category>news</category>
+  <guid>http://aeturrell.com/blog/posts/welcome/index.html</guid>
+  <pubDate>Sat, 15 Oct 2022 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/visual-studio-code-in-the-cloud/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/index.html</link>
+  <description>{B4F502887207:/posts/visual-studio-code-in-the-cloud/index.html}</description>
+  <category>code</category>
+  <category>research</category>
+  <category>cloud</category>
+  <guid>http://aeturrell.com/blog/posts/visual-studio-code-in-the-cloud/index.html</guid>
+  <pubDate>Tue, 27 Sep 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://github.com/aeturrell/coding-for-economists/blob/main/img/vscode_layout.png?raw=true" medium="image"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/research-blogs/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/research-blogs/index.html</link>
+  <description>{B4F502887207:/posts/research-blogs/index.html}</description>
+  <category>blogging</category>
+  <category>research</category>
+  <category>writing</category>
+  <guid>http://aeturrell.com/blog/posts/research-blogs/index.html</guid>
+  <pubDate>Mon, 21 Feb 2022 00:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/research-blogs/res_blog_pyramid.png" medium="image" type="image/png" height="53" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/trial-normal-markdown/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/trial-normal-markdown/index.html</link>
+  <description>{B4F502887207:/posts/trial-normal-markdown/index.html}</description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>http://aeturrell.com/blog/posts/trial-normal-markdown/index.html</guid>
+  <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/setting-up-r-in-vscode/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</link>
+  <description>{B4F502887207:/posts/setting-up-r-in-vscode/index.html}</description>
+  <category>code</category>
+  <guid>http://aeturrell.com/blog/posts/setting-up-r-in-vscode/index.html</guid>
+  <pubDate>Thu, 04 Nov 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/three-ways-to-blog-with-code/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/three-ways-to-blog-with-code/index.html</link>
+  <description>{B4F502887207:/posts/three-ways-to-blog-with-code/index.html}</description>
+  <category>code</category>
+  <category>blogging</category>
+  <guid>http://aeturrell.com/blog/posts/three-ways-to-blog-with-code/index.html</guid>
+  <pubDate>Fri, 12 Feb 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/second-trial-normal-markdown/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/second-trial-normal-markdown/index.html</link>
+  <description>{B4F502887207:/posts/second-trial-normal-markdown/index.html}</description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>http://aeturrell.com/blog/posts/second-trial-normal-markdown/index.html</guid>
+  <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/10-lesser-known-python-packages/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/10-lesser-known-python-packages/index.html</link>
+  <description>{B4F502887207:/posts/10-lesser-known-python-packages/index.html}</description>
+  <category>code</category>
+  <category>open-source</category>
+  <guid>http://aeturrell.com/blog/posts/10-lesser-known-python-packages/index.html</guid>
+  <pubDate>Fri, 23 Oct 2020 23:00:00 GMT</pubDate>
+  <media:content url="https://pythonawesome.com/content/images/2020/08/wrong_brackets.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/get-organised/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/get-organised/index.html</link>
+  <description>{B4F502887207:/posts/get-organised/index.html}</description>
+  <category>code</category>
+  <category>data</category>
+  <category>research</category>
+  <guid>http://aeturrell.com/blog/posts/get-organised/index.html</guid>
+  <pubDate>Tue, 25 Jun 2019 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/get-organised/cookiecutterorg.png" medium="image" type="image/png" height="67" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/specification-curve-analysis/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/specification-curve-analysis/index.html</link>
+  <description>{B4F502887207:/posts/specification-curve-analysis/index.html}</description>
+  <category>code</category>
+  <category>research</category>
+  <category>open-source</category>
+  <category>econometrics</category>
+  <guid>http://aeturrell.com/blog/posts/specification-curve-analysis/index.html</guid>
+  <pubDate>Fri, 25 Jan 2019 00:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/specification-curve-analysis/output_31_0.png" medium="image" type="image/png" height="135" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/wikipedia-into-stem/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/wikipedia-into-stem/index.html</link>
+  <description>{B4F502887207:/posts/wikipedia-into-stem/index.html}</description>
+  <category>outreach</category>
+  <category>code</category>
+  <category>data</category>
+  <guid>http://aeturrell.com/blog/posts/wikipedia-into-stem/index.html</guid>
+  <pubDate>Fri, 24 Aug 2018 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/wikipedia-into-stem/PageViewsJess.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/left-out-of-he/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/left-out-of-he/index.html</link>
+  <description>{B4F502887207:/posts/left-out-of-he/index.html}</description>
+  <guid>http://aeturrell.com/blog/posts/left-out-of-he/index.html</guid>
+  <pubDate>Fri, 17 Aug 2018 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/left-out-of-he/map.png" medium="image" type="image/png" height="101" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/game-theory-rescue/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/game-theory-rescue/index.html</link>
+  <description>{B4F502887207:/posts/game-theory-rescue/index.html}</description>
+  <category>research</category>
+  <category>machine-learning</category>
+  <guid>http://aeturrell.com/blog/posts/game-theory-rescue/index.html</guid>
+  <pubDate>Tue, 10 Jul 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/running-many-regressions-alongside-pandas/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/running-many-regressions-alongside-pandas/index.html</link>
+  <description>{B4F502887207:/posts/running-many-regressions-alongside-pandas/index.html}</description>
+  <category>code</category>
+  <category>econometrics</category>
+  <guid>http://aeturrell.com/blog/posts/running-many-regressions-alongside-pandas/index.html</guid>
+  <pubDate>Fri, 04 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/estimation-heterogeneous-treatment-random-forests/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html</link>
+  <description>{B4F502887207:/posts/estimation-heterogeneous-treatment-random-forests/index.html}</description>
+  <category>code</category>
+  <category>econometrics</category>
+  <category>machine-learning</category>
+  <guid>http://aeturrell.com/blog/posts/estimation-heterogeneous-treatment-random-forests/index.html</guid>
+  <pubDate>Tue, 27 Mar 2018 23:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/estimation-heterogeneous-treatment-random-forests/tau.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/econometrics-in-python-partii-fixed-effects/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/econometrics-in-python-partii-fixed-effects/index.html</link>
+  <description>{B4F502887207:/posts/econometrics-in-python-partii-fixed-effects/index.html}</description>
+  <category>code</category>
+  <category>econometrics</category>
+  <guid>http://aeturrell.com/blog/posts/econometrics-in-python-partii-fixed-effects/index.html</guid>
+  <pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/econometrics-in-python-parti-ml/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/econometrics-in-python-parti-ml/index.html</link>
+  <description>{B4F502887207:/posts/econometrics-in-python-parti-ml/index.html}</description>
+  <category>code</category>
+  <category>econometrics</category>
+  <guid>http://aeturrell.com/blog/posts/econometrics-in-python-parti-ml/index.html</guid>
+  <pubDate>Sat, 10 Feb 2018 00:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/econometrics-in-python-parti-ml/DoubleMLCauchy.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/publication-quality-plots-in-python/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/publication-quality-plots-in-python/index.html</link>
+  <description>{B4F502887207:/posts/publication-quality-plots-in-python/index.html}</description>
+  <category>research</category>
+  <category>visualisation</category>
+  <category>code</category>
+  <guid>http://aeturrell.com/blog/posts/publication-quality-plots-in-python/index.html</guid>
+  <pubDate>Wed, 31 Jan 2018 00:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/publication-quality-plots-in-python/ProdCountries.png" medium="image" type="image/png" height="89" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/ons-api/index.html}</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>http://aeturrell.com/blog/posts/ons-api/index.html</link>
+  <description>{B4F502887207:/posts/ons-api/index.html}</description>
+  <category>data</category>
+  <category>code</category>
+  <guid>http://aeturrell.com/blog/posts/ons-api/index.html</guid>
+  <pubDate>Thu, 28 Dec 2017 00:00:00 GMT</pubDate>
+  <media:content url="http://aeturrell.com/blog/posts/ons-api/blogleisureonsapi.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+</channel>
+</rss>
