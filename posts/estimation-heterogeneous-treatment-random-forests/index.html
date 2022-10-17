@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -68,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -135,9 +140,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Markov Wanderer</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -181,6 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 <div class="quarto-category">code</div>
                 <div class="quarto-category">econometrics</div>
                 <div class="quarto-category">machine-learning</div>
+                <div class="quarto-category">python</div>
               </div>
                   </div>
   </div>
@@ -209,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -229,8 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The paper is a recipe for doing non-parametric causal estimation of heterogeneous treatment effects. Imagine a natural experiment with people who are different according to a set of covariates <span class="math inline">\(X_i\)</span>, and who are assigned a treatment <span class="math inline">\(W_i \in \{0,1\}\)</span>. The response is <span class="math inline">\(Y_i \in \mathbb{R}\)</span>, giving <span class="math inline">\((X_i,W_i,Y_i)\)</span> for each observation. Then the treatment effect, given by</p>
 <p><span class="math display">\[
 \tau(x) = \mathbb{E}\left[Y^{(1)}-Y^{(0)} | X = x\right]
-\]</span></p>
-<p>can be estimated using a random forest, where the observed response <span class="math inline">\(Y^{(h)}\)</span> is labelled for either the treatment case (<span class="math inline">\(h=1\)</span>) or the no treatment case (<span class="math inline">\(h=0\)</span>).</p>
+\]</span> can be estimated using a random forest, where the observed response <span class="math inline">\(Y^{(h)}\)</span> is labelled for either the treatment case (<span class="math inline">\(h=1\)</span>) or the no treatment case (<span class="math inline">\(h=0\)</span>).</p>
 <p>What is especially nice about Wager and Athey’s approach is that it employs the power of classification and regression trees but provides point estimates of the treatment effect that are pointwise consistent and satisfy,</p>
 <p><span class="math display">\[
 \frac{\hat{\tau}(x) - \tau(x)}{\sqrt{\text{Var}(\hat{\tau}(x))}} \longrightarrow \mathcal{N}(0,1)
@@ -243,11 +250,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To show how this works, I will reproduce one of the simulation experiments from their paper. There is an R package which implements their method, but I couldn’t find one in Python. There are some more comments on the approach at the end of the post.</p>
 <section id="simulation-experiments" class="level3">
 <h3 class="anchored" data-anchor-id="simulation-experiments">Simulation experiments</h3>
-<p>We will set <span class="math inline">\(X \thicksim \mathcal{U} ([0 , 1]^d )\)</span> for a <span class="math inline">\(d\)</span> dimensional space of covariates, and assume</p>
-<p><span class="math display">\[
+<p>We will set <span class="math inline">\(X \thicksim \mathcal{U} ([0 , 1]^d )\)</span> for a <span class="math inline">\(d\)</span> dimensional space of covariates, and assume <span class="math display">\[
 Y^{0/1} \thicksim \mathcal{N}(\mathbb{E}[Y^{0/1}|X],1)
-\]</span></p>
-<p>so that the noise in the response variable is homoskedastic. Further assumptions are that the mean effect, <span class="math inline">\(m(x)\)</span>, and the treatment propensity, <span class="math inline">\(e(x)\)</span>, are</p>
+\]</span> so that the noise in the response variable is homoskedastic. Further assumptions are that the mean effect, <span class="math inline">\(m(x)\)</span>, and the treatment propensity, <span class="math inline">\(e(x)\)</span>, are</p>
 <p><span class="math display">\[
 m(x) = 0.5 \mathbb{E}\left[Y^{(1)}+Y^{(0)} | X = x\right] = 0
 \]</span></p>
@@ -307,8 +312,7 @@ e(x) = \mathbb{P}\left[W=1 | X = x\right] = 0.5
 <p>The causal tree point estimates are given by</p>
 <p><span class="math display">\[
 \hat{\tau}(x) = \frac{1}{|\{i:W_i=1,X_i\in L\}|} \sum_{\{i:W_i=1,X_i\in L\}} Y_i - \frac{1}{|\{i:W_i=0,X_i\in L\}|} \sum_{\{i:W_i=0,X_i\in L\}} Y_i
-\]</span></p>
-<p>where <span class="math inline">\(X_i \in L\)</span> means that <span class="math inline">\(L(x)\)</span> is the leaf containing <span class="math inline">\(x\)</span>. However, because our example is based on <span class="math inline">\(\tau(x)\)</span>, we will learn directly on that.</p>
+\]</span> where <span class="math inline">\(X_i \in L\)</span> means that <span class="math inline">\(L(x)\)</span> is the leaf containing <span class="math inline">\(x\)</span>. However, because our example is based on <span class="math inline">\(\tau(x)\)</span>, we will learn directly on that.</p>
 <p>The sampling is done as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a random subsample of size s.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose s ints between 0 and n randomly</span></span>
@@ -426,7 +430,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -90,9 +95,11 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Markov Wanderer</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -164,7 +171,7 @@ div.csl-indent {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -257,19 +264,19 @@ div.csl-indent {
 <p>If you are at a central bank or have a co-author who is, many of them have blogs with big readerships. <a href="https://bankunderground.co.uk/">Bank Underground</a> (Bank of England) and <a href="https://libertystreeteconomics.newyorkfed.org/">Liberty Street Economics</a> (New York Fed) are two worth checking out. Many other institutions have blogs too, like various parts of the UK public sector—the <a href="https://blog.ons.gov.uk/">ONS’ blog</a>, for instance. Most universities have some sort of blog—<a href="https://warwick.ac.uk/fac/soc/economics/research/centres/cage/">CAGE</a> at the University of Warwick is a good example—and, for universities that don’t have their own, there’s <a href="https://theconversation.com/become-an-author">The Conversation</a>.</p>
 <p><a href="https://voxeu.org/">VoxEU</a> has a very large economics readership and is solely focused on research blogs but the website is hardly encouraging when it comes to submissions: “Most Vox columns are commissioned directly by the Editor-in-Chief, but Vox does post a few unsolicited columns.” There’s also a <a href="https://voxdev.org/">VoxDev</a> for development economics, and, happily, this outlet actively invites researchers to submit pieces.</p>
 <p>Bigger overall but less likely to reach an economics audience specifically, there’s <a href="https://medium.com/">Medium</a> and, for a more coding-oriented crowd, <a href="https://dev.to/">Dev.to</a>.</p>
-<div id="refs" class="references csl-bib-body" data-line-spacing="2" role="doc-bibliography">
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-zinsser2006writing" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">Zinsser, W. <em>On writing well: The classic guide to writing nonfiction</em>. (New York, NY, 2006).</div>
 </div>
 <div id="ref-white1972elements" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">2. </div><div class="csl-right-inline">White, E. B. &amp; Strunk, W. <em>The elements of style</em>. (Macmillan New York, 1972).</div>
 </div>
-</div>
-
-
-</section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -339,7 +346,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

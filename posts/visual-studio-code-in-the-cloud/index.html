@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -68,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -134,9 +139,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Markov Wanderer</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -180,6 +187,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 <div class="quarto-category">code</div>
                 <div class="quarto-category">research</div>
                 <div class="quarto-category">cloud</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">rstats</div>
               </div>
                   </div>
   </div>
@@ -208,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -235,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="http://aeturrell.com//2021/11/04/setting-up-r-in-vscode/">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Visual Studio Code is incredibly powerful, whether it’s for writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-markdown.html">markdown</a>, writing <a href="https://aeturrell.github.io/coding-for-economists/wrkflow-quarto.html">quarto</a> (.qmd) files, getting syntax highlighting and peerless language support (eg auto-completion), getting peerless git support, working with a <a href="https://github.com/features/copilot">co-pilot</a>, <a href="https://visualstudio.microsoft.com/services/live-share/">working with collaborators in real-time</a>, or even running <a href="../../posts/setting-up-r-in-vscode/index.html">R code in a modern REPL</a>. For me, it’s the best IDE by some way. One of its strongest features for data science is its ability to do interactive window coding with scripts <em>and</em> notebooks. Yet most online or cloud-based data science services focus only on notebooks. Wouldn’t it be great if there was a reliable way to use all of Visual Studio Code’s features in the cloud?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>In this blog post, I’ll show you how to set up Visual Studio Code on your desktop so that it connects remotely to a cloud virtual machine. This will allow you to code on the cloud as if you were developing locally.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Why should you care? Because having a reproducible environment on the cloud that you can use with your cutting-edge tools is pretty nifty!</p>
 <p>There are pre-made resources out there that do this already such as <a href="https://github.com/features/codespaces">Github Codespaces</a> and <a href="https://www.gitpod.io/">Gitpod</a>, which even has a free tier. They are incredible and well worth checking out for, more or less, a one click solution for fully-featued Visual Studio Code in the cloud. But they’re probably a bit more pricey than a roll your own version, clearly have less flexibility in terms of virtual machines, and don’t come with the nice data backends that are provided by a huge cloud provider (yet).</p>
@@ -369,12 +378,12 @@ For example, try running:
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>This is actually a special kind of ipython console.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>If you have a GitHub account you can just press ‘.’ on a repo and it will load up something that looks a lot like Visual Studio Code but this can’t run code, it’s only a text editor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We’ll be using Google Cloud Compute but the concepts will be similar for other cloud services. You should also note that using cloud services is usually charged though free credits are often available for new accounts. Also, this has only been tested on MacOS.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This is actually a special kind of ipython console.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -446,7 +455,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
