@@ -10,7 +10,53 @@
 <atom:link href="https://aeturrell.github.io/markov-wanderer/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog on economics, coding, and data science. Views are my own.</description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Sat, 15 Oct 2022 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 02 Nov 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>TIL: How to break RSS feeds</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://aeturrell.github.io/markov-wanderer/posts/til-how-to-break-xml/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>Note: this is the first post under a new tag called TIL or “today I learned”. These are shorter format posts that lower the barrier to blogging and capture a mini piece of learning. The idea for TILs has been inspired by Simon Willison’s own <a href="https://til.simonwillison.net/">TIL posts</a>.</p>
+</blockquote>
+<p>It’s really useful to have an RSS feed associated with a blog so that people can automatically pick up new posts. A lot of blogging technology (including Quarto and Jekyll) automatically creates these feeds at a URL called <code>&lt;website name&gt;/index.xml</code>, or similar, relative to the root of your website.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://aeturrell.github.io/markov-wanderer/posts/til-how-to-break-xml/https:/upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">The RSS feed icon (Image: Wikipedia)</figcaption><p></p>
+</figure>
+</div>
+<p>But I kept finding a problem with generating these feeds: either they did not generate at all or they were corrupted and unreadable.</p>
+<p>I use a lot of latex in my blog posts. You can do this inline using dollar signs or as a display equation using double dollar signs in a separate paragraph. So</p>
+<pre class="text"><code>$
+{\displaystyle F_{ij}=G\cdot {\frac {M_{i}M_{j}}{D_{ij}}}.}
+$</code></pre>
+<p>becomes</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%7B%5Cdisplaystyle%20F_%7Bij%7D=G%5Ccdot%20%7B%5Cfrac%20%7BM_%7Bi%7DM_%7Bj%7D%7D%7BD_%7Bij%7D%7D%7D.%7D%0A"></p>
+<p>So far so good. But, when you’re putting latex in a code block—for example, when you’re demonstrating how to add an equation to a chart in <strong>matplotlib</strong> in code—the string with latex in can crash the automatic blog RSS feed generator.</p>
+<p>An example of the kind of string in a blog post that causes the problem is:</p>
+<pre class="text"><code>```python
+ax.set_xlabel(r"$e^\frac{-x^2}{2}$")
+```</code></pre>
+<p>except with the <code>"</code> characters replaced with <code>'</code> because, ironically, I can’t write this string without breaking the feed again.</p>
+<p>The solution—as you can probably guess by now—is to use <code>"</code> instead of <code>'</code> for literal strings with latex in them in code blocks.</p>
+<p>And, if you’re digesting this via an RSS feed, you’ll know it’s worked!</p>
+
+
+
+ ]]></description>
+  <category>blogging</category>
+  <category>code</category>
+  <category>writing</category>
+  <category>TIL</category>
+  <guid>https://aeturrell.github.io/markov-wanderer/posts/til-how-to-break-xml/index.html</guid>
+  <pubDate>Wed, 02 Nov 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/256px-Feed-icon.svg.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Welcome To The New Home for My Blog</title>
   <dc:creator>Arthur Turrell</dc:creator>

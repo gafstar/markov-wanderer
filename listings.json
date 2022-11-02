@@ -2,6 +2,7 @@
   {
     "listing": "/archive.html",
     "items": [
+      "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
       "/posts/visual-studio-code-in-the-cloud/index.html",
       "/posts/research-blogs/index.html",
@@ -25,6 +26,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
       "/posts/visual-studio-code-in-the-cloud/index.html",
       "/posts/research-blogs/index.html",
