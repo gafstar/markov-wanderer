@@ -2,90 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/left-out-of-he/index.html</loc>
-    <lastmod>2022-11-02T11:40:48.475Z</lastmod>
+    <lastmod>2022-12-18T18:42:15.484Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/specification-curve-analysis/index.html</loc>
-    <lastmod>2022-11-02T11:40:49.348Z</lastmod>
+    <lastmod>2022-12-18T18:42:16.036Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/better-narrative-on-narratives/index.html</loc>
-    <lastmod>2022-11-02T11:40:49.735Z</lastmod>
+    <lastmod>2022-12-18T18:42:16.376Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/10-lesser-known-python-packages/index.html</loc>
-    <lastmod>2022-11-02T11:40:50.496Z</lastmod>
+    <lastmod>2022-12-18T18:42:17.099Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/visual-studio-code-in-the-cloud/index.html</loc>
-    <lastmod>2022-11-02T11:40:51.103Z</lastmod>
+    <lastmod>2022-12-18T18:42:17.746Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/running-many-regressions-alongside-pandas/index.html</loc>
-    <lastmod>2022-11-02T11:40:51.475Z</lastmod>
+    <lastmod>2022-12-18T18:42:18.144Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/econometrics-in-python-partii-fixed-effects/index.html</loc>
-    <lastmod>2022-11-02T11:40:51.808Z</lastmod>
+    <lastmod>2022-12-18T18:42:18.484Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/econometrics-in-python-parti-ml/index.html</loc>
-    <lastmod>2022-11-02T11:40:52.191Z</lastmod>
+    <lastmod>2022-12-18T18:42:18.863Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/get-organised/index.html</loc>
-    <lastmod>2022-11-02T11:40:52.990Z</lastmod>
+    <lastmod>2022-12-18T18:42:19.672Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/publication-quality-plots-in-python/index.html</loc>
-    <lastmod>2022-11-02T11:40:53.622Z</lastmod>
+    <lastmod>2022-12-18T18:42:20.277Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/wikipedia-into-stem/index.html</loc>
-    <lastmod>2022-11-02T11:40:53.948Z</lastmod>
+    <lastmod>2022-12-18T18:42:20.642Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/three-ways-to-blog-with-code/index.html</loc>
-    <lastmod>2022-11-02T11:40:54.966Z</lastmod>
+    <lastmod>2022-12-18T18:42:21.618Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aeturrell.github.io/markov-wanderer/posts/the-prize-with-apis/the-prize-with-apis.html</loc>
+    <lastmod>2022-12-18T18:42:22.027Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/welcome/index.html</loc>
-    <lastmod>2022-11-02T11:40:55.266Z</lastmod>
+    <lastmod>2022-12-18T18:42:22.334Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/game-theory-rescue/index.html</loc>
-    <lastmod>2022-11-02T11:40:55.609Z</lastmod>
+    <lastmod>2022-12-18T18:42:22.700Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/ons-api/index.html</loc>
-    <lastmod>2022-11-02T11:40:55.926Z</lastmod>
+    <lastmod>2022-12-18T18:42:23.031Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/setting-up-r-in-vscode/index.html</loc>
-    <lastmod>2022-11-02T11:40:56.378Z</lastmod>
+    <lastmod>2022-12-18T18:42:23.528Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/estimation-heterogeneous-treatment-random-forests/index.html</loc>
-    <lastmod>2022-11-02T11:40:56.788Z</lastmod>
+    <lastmod>2022-12-18T18:42:23.919Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/research-blogs/index.html</loc>
-    <lastmod>2022-11-02T11:40:57.277Z</lastmod>
+    <lastmod>2022-12-18T18:42:24.344Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/posts/til-how-to-break-xml/index.html</loc>
-    <lastmod>2022-11-02T11:40:57.764Z</lastmod>
+    <lastmod>2022-12-18T18:42:24.860Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/archive.html</loc>
-    <lastmod>2022-11-02T11:40:58.188Z</lastmod>
+    <lastmod>2022-12-18T18:42:25.275Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/index.html</loc>
-    <lastmod>2022-11-02T11:40:58.758Z</lastmod>
+    <lastmod>2022-12-18T18:42:25.798Z</lastmod>
   </url>
   <url>
     <loc>https://aeturrell.github.io/markov-wanderer/about.html</loc>
-    <lastmod>2022-11-02T11:40:59.038Z</lastmod>
+    <lastmod>2022-12-18T18:42:26.086Z</lastmod>
   </url>
 </urlset>

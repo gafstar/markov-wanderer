@@ -2,6 +2,7 @@
   {
     "listing": "/archive.html",
     "items": [
+      "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
       "/posts/visual-studio-code-in-the-cloud/index.html",
@@ -26,6 +27,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
       "/posts/visual-studio-code-in-the-cloud/index.html",

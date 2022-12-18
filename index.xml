@@ -9,8 +9,162 @@
 <link>https://aeturrell.github.io/markov-wanderer/index.html</link>
 <atom:link href="https://aeturrell.github.io/markov-wanderer/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog on economics, coding, and data science. Views are my own.</description>
-<generator>quarto-1.1.251</generator>
-<lastBuildDate>Wed, 02 Nov 2022 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.2.262</generator>
+<lastBuildDate>Sun, 18 Dec 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>In praise of APIs (application programming interfaces)</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://aeturrell.github.io/markov-wanderer/posts/the-prize-with-apis/the-prize-with-apis.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this blog, I look at some of reasons why APIs are such a great way to share data.</p>
+<p>APIs make it possible for users to plug data directly into software, dashboards, websites, reports, and analysis in a consistent, machine readable format that favours automation. They are the best practice way to share data between expert users and organisations, and are an important intermediary for enabling data to reach a wider audience—giving a path to significantly increased impact for data that anyone has decided to share. Leading statistical institutes provide their data via APIs, and UK government departments increasingly <a href="https://www.api.gov.uk/#uk-government-apis">share</a> data through APIs too.</p>
+<p>In a previous post, I looked at one API in particular—the <a href="../../posts/ons-api/index.html">ONS API</a>.</p>
+<section id="what-is-an-api" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-an-api">What is an API?</h2>
+<p>APIs, or application programming interfaces, are a set of rules and protocols that enable communication between different software systems. They allow different systems to exchange data and functionality programmatically. They are programming language agnostic, and sometimes make data available in several formats.</p>
+<p>In the context of data and statistics, APIs are particularly useful because they allow organisations to access and use data from a variety of sources in a consistent and controlled manner. For example, a government department might wish to use APIs to reproducibly and reliably access data from a national statistical office.</p>
+<p>It’s easiest to show how APIs work with an example. Let’s pull down CO2 emissions per capita by country from the World Bank using the <a href="https://pandas-datareader.readthedocs.io/"><strong>pandas_datareader</strong></a> package in Python. <strong>pandas_datareader</strong> provides convenient access to a wide range of APIs including those serving up data from the <a href="https://fred.stlouisfed.org/docs/api/fred/">US Federal Reserve (FRED)</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">World Bank</a>, the <a href="https://data.oecd.org/api/">OECD</a>, the <a href="https://www.bankofcanada.ca/valet/docs">Bank of Canada</a>, <a href="https://ec.europa.eu/eurostat/data/web-services">Eurostat</a>, and more.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;">import</span> textwrap</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;">from</span> pandas_datareader <span class="im" style="color: #00769E;">import</span> wb</span>
+<span id="cb1-3"></span>
+<span id="cb1-4">df <span class="op" style="color: #5E5E5E;">=</span> wb.download(                              <span class="co" style="color: #5E5E5E;"># download the data from the world bank</span></span>
+<span id="cb1-5">    indicator<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"EN.ATM.CO2E.PC"</span>,                <span class="co" style="color: #5E5E5E;"># indicator code</span></span>
+<span id="cb1-6">    country<span class="op" style="color: #5E5E5E;">=</span>[<span class="st" style="color: #20794D;">"US"</span>, <span class="st" style="color: #20794D;">"CHN"</span>, <span class="st" style="color: #20794D;">"IND"</span>, <span class="st" style="color: #20794D;">"Z4"</span>, <span class="st" style="color: #20794D;">"Z7"</span>],  <span class="co" style="color: #5E5E5E;"># country codes</span></span>
+<span id="cb1-7">    start<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">2019</span>,                                <span class="co" style="color: #5E5E5E;"># start year</span></span>
+<span id="cb1-8">    end<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">2019</span>,                                  <span class="co" style="color: #5E5E5E;"># end year</span></span>
+<span id="cb1-9">)</span>
+<span id="cb1-10">df <span class="op" style="color: #5E5E5E;">=</span> df.reset_index()                          <span class="co" style="color: #5E5E5E;"># remove country as index</span></span>
+<span id="cb1-11">df[<span class="st" style="color: #20794D;">"country"</span>] <span class="op" style="color: #5E5E5E;">=</span> df[<span class="st" style="color: #20794D;">"country"</span>].<span class="bu" style="color: null;">apply</span>(<span class="kw" style="color: #003B4F;">lambda</span> x: textwrap.fill(x, <span class="dv" style="color: #AD0000;">10</span>))  <span class="co" style="color: #5E5E5E;"># wrap long names</span></span>
+<span id="cb1-12">df <span class="op" style="color: #5E5E5E;">=</span> df.sort_values(<span class="st" style="color: #20794D;">"EN.ATM.CO2E.PC"</span>)          <span class="co" style="color: #5E5E5E;"># re-order</span></span>
+<span id="cb1-13">df.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>EN.ATM.CO2E.PC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>India</td>
+      <td>2019</td>
+      <td>1.797620</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>East Asia\n&amp; Pacific</td>
+      <td>2019</td>
+      <td>6.497258</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Europe &amp;\nCentral\nAsia</td>
+      <td>2019</td>
+      <td>6.576734</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>China</td>
+      <td>2019</td>
+      <td>7.605937</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>United\nStates</td>
+      <td>2019</td>
+      <td>14.673411</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>There are several features of note:</p>
+<ul>
+<li>we only pulled down the data we needed</li>
+<li>we were able to get data straight into our analytical tool (here, Python)</li>
+<li>getting the data for the period we want is as simple as changing the year</li>
+</ul>
+<p>Having downloaded the data, let’s now plot it:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;">import</span> seaborn <span class="im" style="color: #00769E;">as</span> sns</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">fig, ax <span class="op" style="color: #5E5E5E;">=</span> plt.subplots()</span>
+<span id="cb2-4">sns.barplot(x<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"country"</span>, y<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"EN.ATM.CO2E.PC"</span>, data<span class="op" style="color: #5E5E5E;">=</span>df.reset_index(), ax<span class="op" style="color: #5E5E5E;">=</span>ax)</span>
+<span id="cb2-5">ax.set_title(<span class="vs" style="color: #20794D;">r"CO$_2$ (metric tons per capita)"</span>, loc<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"right"</span>)</span>
+<span id="cb2-6">plt.suptitle(<span class="st" style="color: #20794D;">"The USA leads the world on per-capita emissions"</span>, y<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">1.01</span>)</span>
+<span id="cb2-7"><span class="cf" style="color: #003B4F;">for</span> key, spine <span class="kw" style="color: #003B4F;">in</span> ax.spines.items():</span>
+<span id="cb2-8">    spine.set_visible(<span class="va" style="color: #111111;">False</span>)</span>
+<span id="cb2-9">ax.set_ylabel(<span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-10">ax.set_xlabel(<span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-11">ax.yaxis.tick_right()</span>
+<span id="cb2-12">plt.show()</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="https://aeturrell.github.io/markov-wanderer/posts/the-prize-with-apis/the-prize-with-apis_files/figure-html/cell-4-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<p>This shows how data can be pulled straight down into analytical tools, reports, forecasts, and so on; any output or analysis you can think of.</p>
+</section>
+<section id="why-are-apis-brilliant" class="level2">
+<h2 class="anchored" data-anchor-id="why-are-apis-brilliant">Why are APIs brilliant?</h2>
+<p>Programmatic access to data has a number of clear benefits:</p>
+<ul>
+<li>Data are provided in a consistent, machine readable format—this can save hours of work for each file and enables automation</li>
+<li>users can build other tools on top of APIs and APIs integrate directly into analytical tools</li>
+<li>APIs are accessible by a range of open source (and free) software</li>
+<li>APIs can provide only the data that the user needs (they enable filtering)</li>
+<li>APIs can provide a data provider with more granular information on what data have been requested than a bulk download can</li>
+<li>an organisation can provide data to itself (eg across teams) without one team having to bother another; teams within the organisation can also consume the API</li>
+<li>the date of the ingestion of data can be easily including in the metadata that the API send—this is really useful to anyone working with real-time data applications (eg nowcasting) or if a mistake is subsequently found in a series</li>
+<li>using APIs to serve data encourages the use of consistent taxonomies (eg country names) that will ultimately aid end-users by enabling them to more easily link data</li>
+<li>secure APIs allow organisations to share sensitive data in a programmatic way and, while no method of data transfer can ever be 100% secure, APIs that follow the best practices for security are thought to involve less risk than emailing files</li>
+</ul>
+<p>Directly integrating with analytical tools has a number of benefits for auditability and accountability given that analytical tools can be used with code, and code can be put under version control—which means to-the-second, to-the-line auditing of who changed what when and easy-to-reverse changes should errors be discovered.</p>
+<p>Additionally, when data are shared only as files, it’s so often as Microsoft Excel files, which can go wrong in some pretty serious ways:</p>
+<ul>
+<li>Excel is a proprietary format that is harder to use without buying software from a particular vendor</li>
+<li>Excel mixes analysis and data storage (which is bad practice)</li>
+<li>Excel changes data</li>
+<li>Excel is limited in storage size and file-types it can handle</li>
+<li>Excel is not easily auditable (code-first approaches allow for to-the-second, to-the-line audit).</li>
+</ul>
+<p>That said, you can improve the provision of data through Excel by making it machine readable or by making it consistent, perhaps making use of the excellent <a href="https://gptables.readthedocs.io/">GPTables</a> (good practice tables) package created by the UK’s Office for National Statistics (full disclosure: I didn’t work on this package, but some colleagues did).</p>
+<p>It’s also important to note that providing a downloadable file and an API is not mutually exclusive—to serve the widest range of users, it’s a good idea to provide both. But it’s important that they feed off the same underlying database in the same way and so are 100% consistent.</p>
+<p>The main downside of APIs is that they are more difficult to use for all but expert users (though this category has expanded in recent years as the world becomes more code-savvy and it now arguably includes everyone from academics to data journalists to data enthusiasts). This is why it’s important to make APIs available <em>alongside</em> other ways to access the data.</p>
+<p>To lower the barrier to using an API, there are a couple of options. They can be integrated into easier-to-use tools (like the <strong>pandas_datareader</strong> package) or they can be provided alongside an API ‘query builder’ that gives rapid feedback on whether a query is valid or not (<a href="https://overpass-turbo.eu/">open street map API’s ‘overpass turbo’ is a good example</a>).</p>
+</section>
+<section id="api-best-practice" class="level2">
+<h2 class="anchored" data-anchor-id="api-best-practice">API Best Practice</h2>
+<p>There are a number of API standards out there, and the best one depends on the context. In the UK, there is <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">gov.uk guidance</a> on APIs.</p>
+<p>The approach followed for open data APIs across a <a href="https://sdmx.org/?page_id=2705">wide range of international and national statistical organisations</a><sup>1</sup> is a standard called SDMX: <a href="https://sdmx.org/?page_id=2555">Statistical Data and Metadata eXchange</a>. It’s an ISO (International Organization for Standardization) standard designed to describe statistical data and metadata, normalise their exchange, and improve their efficient sharing across statistical and similar organisations.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The BIS (Bank for International Settlements), ECB (European Central Bank), EUROSTAT (Statistical Office of the European Union), IMF (International Monetary Fund), OECD (Organisation for Economic Co-operation and Development), UN (United Nations), and the World Bank.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>code</category>
+  <category>data</category>
+  <guid>https://aeturrell.github.io/markov-wanderer/posts/the-prize-with-apis/the-prize-with-apis.html</guid>
+  <pubDate>Sun, 18 Dec 2022 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>TIL: How to break RSS feeds</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -32,9 +186,9 @@
 </div>
 <p>But I kept finding a problem with generating these feeds: either they did not generate at all or they were corrupted and unreadable.</p>
 <p>I use a lot of latex in my blog posts. You can do this inline using dollar signs or as a display equation using double dollar signs in a separate paragraph. So</p>
-<pre class="text"><code>$
+<pre class="text"><code>$$
 {\displaystyle F_{ij}=G\cdot {\frac {M_{i}M_{j}}{D_{ij}}}.}
-$</code></pre>
+$$</code></pre>
 <p>becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%7B%5Cdisplaystyle%20F_%7Bij%7D=G%5Ccdot%20%7B%5Cfrac%20%7BM_%7Bi%7DM_%7Bj%7D%7D%7BD_%7Bij%7D%7D%7D.%7D%0A"></p>
 <p>So far so good. But, when you’re putting latex in a code block—for example, when you’re demonstrating how to add an equation to a chart in <strong>matplotlib</strong> in code—the string with latex in can crash the automatic blog RSS feed generator.</p>
@@ -335,19 +489,19 @@ For example, try running:
 <p>If you are at a central bank or have a co-author who is, many of them have blogs with big readerships. <a href="https://bankunderground.co.uk/">Bank Underground</a> (Bank of England) and <a href="https://libertystreeteconomics.newyorkfed.org/">Liberty Street Economics</a> (New York Fed) are two worth checking out. Many other institutions have blogs too, like various parts of the UK public sector—the <a href="https://blog.ons.gov.uk/">ONS’ blog</a>, for instance. Most universities have some sort of blog—<a href="https://warwick.ac.uk/fac/soc/economics/research/centres/cage/">CAGE</a> at the University of Warwick is a good example—and, for universities that don’t have their own, there’s <a href="https://theconversation.com/become-an-author">The Conversation</a>.</p>
 <p><a href="https://voxeu.org/">VoxEU</a> has a very large economics readership and is solely focused on research blogs but the website is hardly encouraging when it comes to submissions: “Most Vox columns are commissioned directly by the Editor-in-Chief, but Vox does post a few unsolicited columns.” There’s also a <a href="https://voxdev.org/">VoxDev</a> for development economics, and, happily, this outlet actively invites researchers to submit pieces.</p>
 <p>Bigger overall but less likely to reach an economics audience specifically, there’s <a href="https://medium.com/">Medium</a> and, for a more coding-oriented crowd, <a href="https://dev.to/">Dev.to</a>.</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-line-spacing="2">
+<div id="refs" class="references csl-bib-body" data-line-spacing="2">
 <div id="ref-zinsser2006writing" class="csl-entry">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">Zinsser, W. <em>On writing well: The classic guide to writing nonfiction</em>. (New York, NY, 2006).</div>
 </div>
 <div id="ref-white1972elements" class="csl-entry">
 <div class="csl-left-margin">2. </div><div class="csl-right-inline">White, E. B. &amp; Strunk, W. <em>The elements of style</em>. (Macmillan New York, 1972).</div>
 </div>
-</div></section></div> ]]></description>
+</div>
+
+
+</section>
+
+ ]]></description>
   <category>blogging</category>
   <category>research</category>
   <category>writing</category>
@@ -2051,7 +2205,7 @@ who called it <code>git blame</code> and not <code>git whose-line-is-it-anyway</
 </section>
 <section id="an-example-in-python" class="level2">
 <h2 class="anchored" data-anchor-id="an-example-in-python">An example in Python</h2>
-<p>This example is going to use the concrete data I’ve <a href="%7B%7Bsite.baseurl%7D%7D/2018/05/05/running-many-regressions-alongside-pandas/">used previously</a> to look at the effect of ‘superplasticizer’ on the compressive strength of concrete. I’m going to skip over step 1 quickly, as it will vary a lot depending on your dataset.</p>
+<p>This example is going to use the concrete data I’ve <a href="{{site.baseurl}}/2018/05/05/running-many-regressions-alongside-pandas/">used previously</a> to look at the effect of ‘superplasticizer’ on the compressive strength of concrete. I’m going to skip over step 1 quickly, as it will vary a lot depending on your dataset.</p>
 <section id="step-1" class="level3">
 <h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
 <p>The data don’t actually require any feature engineering, so we’ll have to pretend that - beyond those two key variables - we’re not sure whether other features should be included or not.</p>
@@ -3163,7 +3317,7 @@ Standard errors in parentheses.
 
 
 <p><em>The third in a series of posts covering econometrics in Python. Here I look at ‘causal forests’.</em></p>
-<p>As I mentioned in a <a href="%7B%7Bsite.baseurl%7D%7D/2018/02/10/econometrics-in-python-partI-ML/">previous post</a>, there are methods at the intersection of machine learning and econometrics which are really exciting. <a href="https://www.gsb.stanford.edu/faculty-research/faculty/susan-athey">Susan Athey</a> is very active in this space and has written a number of papers, including a review article of where the cross-over between economics and computer science is headed. In this post, I’m going to look at recreating an example from her paper, ‘Estimation and inference of heterogeneous treatment effects using random forests’ (Wager &amp; Athey, 2017).</p>
+<p>As I mentioned in a <a href="{{site.baseurl}}/2018/02/10/econometrics-in-python-partI-ML/">previous post</a>, there are methods at the intersection of machine learning and econometrics which are really exciting. <a href="https://www.gsb.stanford.edu/faculty-research/faculty/susan-athey">Susan Athey</a> is very active in this space and has written a number of papers, including a review article of where the cross-over between economics and computer science is headed. In this post, I’m going to look at recreating an example from her paper, ‘Estimation and inference of heterogeneous treatment effects using random forests’ (Wager &amp; Athey, 2017).</p>
 <p>The paper is a recipe for doing non-parametric causal estimation of heterogeneous treatment effects. Imagine a natural experiment with people who are different according to a set of covariates <img src="https://latex.codecogs.com/png.latex?X_i">, and who are assigned a treatment <img src="https://latex.codecogs.com/png.latex?W_i%20%5Cin%20%5C%7B0,1%5C%7D">. The response is <img src="https://latex.codecogs.com/png.latex?Y_i%20%5Cin%20%5Cmathbb%7BR%7D">, giving <img src="https://latex.codecogs.com/png.latex?(X_i,W_i,Y_i)"> for each observation. Then the treatment effect, given by</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctau(x)%20=%20%5Cmathbb%7BE%7D%5Cleft%5BY%5E%7B(1)%7D-Y%5E%7B(0)%7D%20%7C%20X%20=%20x%5Cright%5D%0A"> can be estimated using a random forest, where the observed response <img src="https://latex.codecogs.com/png.latex?Y%5E%7B(h)%7D"> is labelled for either the treatment case (<img src="https://latex.codecogs.com/png.latex?h=1">) or the no treatment case (<img src="https://latex.codecogs.com/png.latex?h=0">).</p>
 <p>What is especially nice about Wager and Athey’s approach is that it employs the power of classification and regression trees but provides point estimates of the treatment effect that are pointwise consistent and satisfy,</p>
