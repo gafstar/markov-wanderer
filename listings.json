@@ -2,6 +2,7 @@
   {
     "listing": "/archive.html",
     "items": [
+      "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
@@ -27,6 +28,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
       "/posts/welcome/index.html",
