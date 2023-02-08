@@ -2,6 +2,7 @@
   {
     "listing": "/archive.html",
     "items": [
+      "/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
       "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
@@ -28,6 +29,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
       "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
       "/posts/til-how-to-break-xml/index.html",
