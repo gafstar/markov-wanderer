@@ -10,7 +10,77 @@
 <atom:link href="https://aeturrell.github.io/markov-wanderer/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog on economics, coding, and data science. Views are my own.</description>
 <generator>quarto-1.2.262</generator>
-<lastBuildDate>Wed, 08 Feb 2023 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 01 Mar 2023 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Data science maturity and the cloud</title>
+  <dc:creator>Arthur Turrell</dc:creator>
+  <link>https://aeturrell.github.io/markov-wanderer/posts/data-science-maturity/data-science-maturity.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Data science has enormous potential to do good in the public sector. The efficiencies that are possible from automation and reproducible analytical pipelines alone are huge—if you like this is improvement at <em>existing</em> tasks. Throw machine learning and advanced analytics into the mix and data science can also complete entirely new tasks, <em>expanding the horizon of what’s possible</em>. It’s an exciting time to be a data scientist.</p>
+<p>And yet I regularly speak to data scientists who are frustrated in their roles because the tech in their organisation simply does not give them the ability to do their job in the best way possible; or, even worse, they do not have the <em>agency</em> to do their job well. Data science, and data scientists, need the right conditions to flourish.</p>
+<p>So, if you’re looking at your own organisation’s data science offering, what are the key things you should be able to do? And how can we ensure that data scientists have them?</p>
+<section id="how-to-check-an-organisations-data-science-maturity" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-check-an-organisations-data-science-maturity">How to check an organisation’s data science maturity</h2>
+<p>This is a highly personal, non-empirical, experience-based list of what the essentials are for data scientists to be productive. To some extent, subsequent elements build upon previous ones.</p>
+<ol type="1">
+<li><strong>First of all, data scientists need an <em>integrated development environment</em> (IDE) to write their code in.</strong> No, this isn’t just a Jupyter Notebook, though vendors seem to think that’s all data scientists ever use (it’s great to have notebooks but they’re not enough on their own). It looks more like <em>Visual Studio Code</em> for most languages, or perhaps <em>RStudio</em> for R (though you can use <em>Visual Studio Code</em> for R too, as covered in <a href="../../posts/setting-up-r-in-vscode/index.html">this blog post</a>).</li>
+<li><strong>Packages for the integrated development environment</strong>. Before you’re even writing code, you need the right extensions (aka packages) for your IDE to allow you to work effectively. For example, the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python extension</a> is critical for using Python in Visual Studio Code. But there’s a bunch of others for markdown, automatically writing docstrings, colourising hex colour codes, integrating with github, sorting your package imports, writing latex, and on and on… These are essential to a (productive) data science workflow.</li>
+<li><strong>A way to manage installations of programming languages that can execute code.</strong> This means installations of Python and R, but not just having a single version of those on a machine : data scientists need a way to manage <em>multiple</em> environments, usually on a per project basis. This might mean one project is on Python 3.8.8, while another is using Python 3.10. Data scientists need control of this, and tools such as <a href="https://python-poetry.org/">poetry</a> or <a href="https://www.anaconda.com/products/distribution">Anaconda</a> give it to them. With this, data scientists can execute their code.</li>
+<li><strong>A way to install packages and libraries for base installations of programming languages.</strong> Python and R alone aren’t much good. Their power comes from extending them with, in the case of Python, 100s of thousands of extra code libraries. These libraries come from repositories such as PyPI and CRAN. In the case of Python, they are installed via an instruction on the command line that triggers dependency resolution and then a download over the internet. Both poetry and Anaconda can act as intermediaries to the Python repositories, and can be used as command line tools to install packages in specific coding environments.</li>
+<li><strong>Access to the command line</strong>. A command line is a way to write instructions directly to a computer. Data scientists need it for all kinds of things, from install packages (see above) to renaming and moving files, to managing code environments (see 3). On some enterprise IT solutions, access to the command line is blocked. Windows doesn’t have a conventional command line (well, it does, but it uses a different set of commands, and has fewer useful tools).</li>
+<li><strong>A way to put code under version control.</strong> It’s best practice for data scientists to put code under version control and it’s absolutely essential for collaboration and audit. In practice, this means an installation of git, the most popular version control tool. You can use git either through an integrated development environment (see 1) or through the command line (see above). Data scientists will also need a central repository service to share code with each other, usually Gitlab or Github</li>
+<li><strong>The ability to create efficient stores of data, and to access data programmatically</strong>. It might seem like an absolute basic, but many organisations struggle with where to keep their data. There are infamous examples of public sector operations going wrong because of errors in spreadsheets and the bottom line is that neither data nor computations should be in spreadsheets. Data scientists need to be able to flexibly create stores of data on servers; putting data on a shared network drive does not suffice. For example, most data scientists will need to be able to create databases that their colleagues can also access. They also need to be able to access stored data programmatically (ie through analytical tools such as R and Python). Without efficient read and write options like these, data scientists are going to be slowed right down.</li>
+<li><strong>A unix-like computing environment, for example Linux or MacOS.</strong> Microsoft’s Windows operating system has its strong points, (and, despite its cost, it’s a popular solution for public sector IT) but it’s not at all geared toward coding or automation. So much so that some modern data science libraries don’t work at all on Windows. There are a host of reasons behind this. They don’t matter, the point is the same: for data scientists, working on unix-like environments is just going to be a lot easier.</li>
+<li><strong>Tooling around reproducibility.</strong> A key tenet of good data science, not to mention good analysis, is that it should be reproducible. Clearly this is important for reproducible analytical pipelines too. We’ve already met a few of the tools that can reproduce code environments (eg poetry and Anaconda), but data scientists also need tools to run pipelines (eg Make and Dagster), and even to reproduce entire operating systems (eg Docker). So these tools need to be available and usable, and a good test of an organisation is whether it can support the deployment of <a href="https://www.docker.com/">Docker</a> images.</li>
+<li><strong>Continuous integration / continuous deployment, and the ability to schedule code execution.</strong> If we’re serious about getting data science solutions deployed in operation areas, it’s absolutely critical that data scientists can test code on the fly as part of pull requests, one element of continuous integration. And that, before deployment, a series of checks take place before something goes live. Far from having the ability to do these, many organisations would struggle to have a script that is executed at a regular frequency. Without the ability to schedule events and scripts, what data science can do is going to be severely limited to having a human in the loop—missing out on a lot of the potential benefits.</li>
+<li><strong>The cloud.</strong> The reality of data science in 2023 is that much more can be achieved on the cloud than using a single laptop or on an on-prem machine (say a server sat in the basement). For example, if you’re working with data at enormous scales, you probably want to put it in something like Google’s BigQuery. I’m not even sure how you would deploy a machine learning model if not on the cloud—and asking how many models have been deployed to production is another good one for assessing an organisation’s data science maturity. There are emerging cloud services such as <a href="https://cloud.google.com/workstations">Google Cloud Workstation</a> and <a href="https://github.com/features/codespaces">Github Codespaces</a> that make getting started on cloud easier than ever, too. You may hear arguments that cloud isn’t safe. While I’m not sure I buy those arguments given the plausible alternatives, the policy of the UK government is cloud-first anyway—and <a href="https://www.gov.uk/guidance/government-cloud-first-policy">it has been since 2013</a>. Increasingly, the best practice principle is to <em>not</em> code <a href="../../posts/why-you-shouldnt-code/why-you-shouldnt-code.html">directly on your work laptop</a>. So if you encounter an organisation that is entirely on-prem for “security” reasons, I’d really question whether they have a comparative advantage in providing secure computing services and what trade-off with efficiency and functionality they’re implicitly making.</li>
+<li><strong>The ability to compile code and install code-adjacent tools</strong>. While Python, R, and SQL do not need compiling in the same way that C++ does, they do sometimes write their own code that needs compiling. The packages that are front-ends to the Bayesian library Stan are great examples of this—even though you write a Python or R code, somewhere in the background code in another language needs to be compiled. Enterprise Windows laptops will block that compilation. Another example would be the popular Python geospatial data science package <a href="https://geopandas.org"><strong>geopandas</strong></a> which has a bunch of dependencies that aren’t in Python at all, but still need to be installed.</li>
+</ol>
+<p>Perhaps surprisingly, many organisations, even those with data scientists, struggle to provide 1—4.</p>
+</section>
+<section id="how-to-create-the-right-environment-for-data-science-to-flourish" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-create-the-right-environment-for-data-science-to-flourish">How to create the right environment for data science to flourish</h2>
+<p>You’re probably interested in how an organisation can effectively achieve the environment that data scientists need to flourish. Looking at the list above, it might seem like a lot. But it’s actually not hard. Basically, an account with AWS (Amazon Web Services), GCP (Google Cloud Platform), or Azure (Microsoft’s cloud platform) will open up all of this. A lot of organisations get that far (though not all).</p>
+<p>Where organisations then fall down is putting a barrier that stops data scientists provisioning their own specific services from these cloud providers: instead of giving data scientists a budget and telling them to do what they need to, individual cloud services are often managed by an intermediate layer: usually the IT department and sometimes an external vendor that aims to provide a complete solution.</p>
+<p>On the face of it, this model makes sense: IT already provision and manage work laptops (plus all the programmes on them), why shouldn’t they also provision specific cloud services for data scientists? There are a few good reasons I personally don’t believe they should:</p>
+<ul>
+<li>the time of people in IT departments is usually extremely precious; we can save their time as much as possible by allowing data scientists to self-provision the services they need.</li>
+<li>workers in IT departments are technical experts but are unlikely to be huge users of data science tools themselves—leading to a gap between data scientists’ needs and what is provisioned. The example of external vendors thinking data scientists just use Jupyter Notebooks for everything is classic. I have had (extremely helpful) colleagues in IT who were surprised that data scientists needed to use the command line.</li>
+<li>having data scientists own the budget and directly provision their own services makes for a tighter feedback loop between costs and services. If that link is broken, people can unwittingly run up huge bills.</li>
+<li>having data scientists be able to self-provision means they feel empowered and are faster at getting what they need. I heard of one public sector organisation where it takes two weeks and numerous forms and emails to set up a (basic) SQL database: the result is that no-one sets up a SQL database, even if that would be the best solution. In general, I think it’s a good principle to give experts a brief, a budget, an accountability framework, and then let them get on with the job—and this applies to data scientists here.</li>
+<li>work laptops are typically used by all staff, and so they need to be fairly fool proof, which is why IT specialists are needed to manage the fleet of work laptops and to triage any issues. Data scientists are themselves technical experts, so do not actually need this level of service.</li>
+<li>by introducing a threshold or barrier to the process (eg you have to use a service desk request to try something), you discourage innovation of the kind that may not work, but just might, if someone could just try something quickly.</li>
+</ul>
+<p>I’m not talking about data scientists choosing whether it’s GCP or AWS or whoever providing the cloud services here; the IT department or similar doing that makes a lot of sense. But within that outer wrapper, I think it makes much more sense for data scientists to choose the specific services they need without going through a middle layer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://aeturrell.github.io/markov-wanderer/posts/data-science-maturity/dallas-reedy-H83_BXx3ChY-unsplash.jpg" class="img-fluid figure-img" alt="A heart-shaped cloud floating by."></p>
+<p></p><figcaption class="figure-caption">Avoid the wrong sort of cloud provision</figcaption><p></p>
+</figure>
+</div>
+<p>If you stop to think about it, the model we usually use is the one where enabling functions determine a service provider then let people choose the specific products or services according to their local budget. The Chief Operating Office might choose which firm serves up food in the canteen, but the COO isn’t going to actually come to the canteen and force you to eat the salad; you get to choose within your budget. Similarly, back when organisations actually needed stationary, there was usually a high-level agreement with a supplier but local business areas would then decide what their area needed within their budget. Why should it be different for specific cloud services for experts like data scientists?</p>
+<p>Some might say there are risks with this approach. For example, IT specialists are trained in security practices, or can build in security practices, that prevent data leaks or other things that keep Chief Information Officers up at night. I think data scientists could cover this just as well, though I think that we might need more training in it. I would also say that this apparently risky counter-factual is better than where we are right now: we have data leaks and errors because people are using the wrong tools and tech (cf the problems with Excel spreadsheets and people being forced to email data rather than programmatically access it because they cannot create databases or APIs). So I don’t really buy that there’s even a trade-off here. But even if there was we undervalue innovation because risks are tangible and apparent but the improvements we <em>could</em> achieve if we were to make a slightly different trade-off are not. Innovation may still be worth doing.</p>
+<p>As noted by <a href="https://www.ft.com/content/5a4cf5b1-56ef-4445-bda3-20b81d1ef752">Tim Harford</a>, it’s quite telling that such a lot of innovation happened in the public sector during the pandemic when the usual rules (and, I must say, barriers) were temporarily suspended. I believe there’s a win-win-win here where data scientists are empowered to innovate and improve public services, budget holders can get accountability from those who are actually spending the money on cloud services, and ever-busy IT departments don’t have to manage cloud services on top of everything else.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>code</category>
+  <category>python</category>
+  <category>rstats</category>
+  <category>data science</category>
+  <category>cloud</category>
+  <category>work chat</category>
+  <category>public sector</category>
+  <guid>https://aeturrell.github.io/markov-wanderer/posts/data-science-maturity/data-science-maturity.html</guid>
+  <pubDate>Wed, 01 Mar 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://aeturrell.github.io/markov-wanderer/posts/data-science-maturity/dallas-reedy-H83_BXx3ChY-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>The public sector could be better at managing knowledge ‘data’: what can we do?</title>
   <dc:creator>Arthur Turrell</dc:creator>
@@ -167,6 +237,7 @@ Nagle, Frank. 2019. <span>“Open Source Software and Firm Productivity.”</spa
   <category>open-source</category>
   <category>cloud</category>
   <category>data science</category>
+  <category>work chat</category>
   <guid>https://aeturrell.github.io/markov-wanderer/posts/why-you-shouldnt-code/why-you-shouldnt-code.html</guid>
   <pubDate>Fri, 13 Jan 2023 00:00:00 GMT</pubDate>
   <media:content url="https://aeturrell.github.io/markov-wanderer/posts/why-you-shouldnt-code/elisa-ventur-bmJAXAz6ads-unsplash.jpg" medium="image" type="image/jpeg"/>
@@ -3874,313 +3945,6 @@ Warnings:
   <guid>https://aeturrell.github.io/markov-wanderer/posts/econometrics-in-python-parti-ml/index.html</guid>
   <pubDate>Sat, 10 Feb 2018 00:00:00 GMT</pubDate>
   <media:content url="https://aeturrell.github.io/markov-wanderer/posts/econometrics-in-python-parti-ml/DoubleMLCauchy.png" medium="image" type="image/png" height="96" width="144"/>
-</item>
-<item>
-  <title>Making a publication quality plot with Python (and latex)</title>
-  <dc:creator>Arthur Turrell</dc:creator>
-  <link>https://aeturrell.github.io/markov-wanderer/posts/publication-quality-plots-in-python/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="update-2021.03.06" class="level3">
-<h3 class="anchored" data-anchor-id="update-2021.03.06">Update 2021.03.06</h3>
-<p>I now recommend the style file below for quick, publication quality plots in Python using Matplotlib (tested on 3.3.4 and Python 3.8). To use the style, save it in a file called ‘plot_style.txt’ and load it in Matplotlib using:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;">as</span> plt</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">plt.style.use(<span class="st" style="color: #20794D;">'plot_style.txt'</span>)</span></code></pre></div>
-<p>before doing any plotting. The contents of ‘plot_style.txt’ are:</p>
-<pre class="text"><code>xtick.color: 323034
-ytick.color: 323034
-text.color: 323034
-lines.markeredgecolor: black
-patch.facecolor        : bc80bd
-patch.force_edgecolor  : True
-patch.linewidth: 0.8
-scatter.edgecolors: black
-grid.color: b1afb5
-axes.titlesize: 16
-legend.title_fontsize: 12
-xtick.labelsize: 12
-ytick.labelsize: 12
-axes.labelsize: 12
-font.size: 10
-axes.prop_cycle : (cycler('color', ['bc80bd' ,'fb8072', 'b3de69','fdb462','fccde5','8dd3c7','ffed6f','bebada','80b1d3', 'ccebc5', 'd9d9d9']))
-mathtext.fontset: stix
-font.family: STIXGeneral
-lines.linewidth: 2
-legend.frameon: True
-legend.framealpha: 0.8
-legend.fontsize: 10
-legend.edgecolor: 0.9
-legend.borderpad: 0.2
-legend.columnspacing: 1.5
-legend.labelspacing:  0.4
-text.usetex: False
-axes.titlelocation: left
-axes.formatter.use_mathtext: True
-axes.autolimit_mode: round_numbers
-axes.labelpad: 3
-axes.formatter.limits: -4, 4
-axes.labelcolor: black
-axes.edgecolor: black
-axes.linewidth: 0.6
-axes.spines.right : False
-axes.spines.top : False
-axes.grid: False
-figure.titlesize: 18
-figure.dpi: 300</code></pre>
-<p>Note that if you’re using the plots for the web then you’re likely to want to turn down the <code>figure.dpi</code> setting; 125 is a good compromise.</p>
-<p>You can find more information on plotting in Python in my online book: see the <a href="https://aeturrell.github.io/coding-for-economists/vis-intro.html">Intro to Data Visualisation</a> page for an overview of libraries and the basics of using them or, for lots of examples of standard charts, the <a href="https://aeturrell.github.io/coding-for-economists/vis-common-plots.html">Common Plots</a> page.</p>
-<p>If you’re looking for easier customisation of plots in Matplotlib, try out the <a href="https://github.com/petermckeeverPerform/themepy"><strong>themepy</strong></a> package.</p>
-</section>
-<section id="original-post" class="level3">
-<h3 class="anchored" data-anchor-id="original-post">Original post</h3>
-<p>High level languages like Python and R are great partly because entire workflows can be done within them; from data ingestion, to cleaning, to analysis, to producing plots and regression tables. But when I looked around online, I found that there wasn’t a huge amount of information on how to do one of the last stages - producing plots - in a way that is consistent with what is required by journals.</p>
-<p>Journals often ask for figures in lossless formats (think pdf, tiff, svg, and eps as opposed to png or jpg), in certain sizes, and at a specific or minimum resolution. What is most important in a journal article or working paper is clearly the content. However, when a paper looks good, and its figures are crisp, clear, and communicate a message, it helps to deliver the content in the way intended. Low resolution, rasterised images just look bad (at best) and distract from the point of the figure (at worst).</p>
-<p>If you’re not convinced of the benefits of lossless formats over rasterised ones, try creating a pdf with more than five or six very high resolution but simple (= not too many features) plots embedded as pngs using latex. Yes, it’s big! For simple plots, lossless formats take up far less space on disk <em>and</em> they look better.</p>
-<p>As an author, making plots easily digestible and a part of the narrative of the paper can enhance the experience for the reader substantially. Different colours, types of line, and levels of transparency can help here. For consistency, you may want to include the same mathematical symbols in the main text as you do in the legend using latex.</p>
-<p>I often want to do all of the above, so I’ve put together an example. While much will need to be changed for other examples, it’s a good starting point.</p>
-<p>Let’s begin with some parameter settings. Matplotlib, the Python plotting library, has a style file with defaults in. I’m going to change a few of these. They’re mostly obvious.</p>
-<pre class="text"><code>xtick.labelsize: 16
-ytick.labelsize: 16
-font.size: 15
-figure.autolayout: True
-figure.figsize: 7.2,4.45
-axes.titlesize : 16
-axes.labelsize : 17
-lines.linewidth : 2
-lines.markersize : 6
-legend.fontsize: 13
-mathtext.fontset: stix
-font.family: STIXGeneral</code></pre>
-<p>The first real choice is about the relative size of the figure, and the font sizes of the plot title, axes titles, and label sizes. The journal <em>Nature</em> requires that <a href="https://www.nature.com/nature/for-authors/final-submission">double-column figures be 183 mm wide</a>, which is 7.2 inches using the units which Matplotlib works in. Heights can differ, but I choose an eye-pleasing 1.6 ratio. The only other really important choice here is what fonts to use. I’ve gone for Stix as it can be used for both latex and normal fonts, and it looks professional in plots. To use these settings, they just need to go in a plain text file called ‘PaperDoubleFig.mplstyle’ which we can point Matplotlib at later.</p>
-</section>
-<section id="the-data" class="level3">
-<h3 class="anchored" data-anchor-id="the-data">The data</h3>
-<p>The data for the example are from the <a href="https://www.ons.gov.uk/">Office for National Statistics</a> (ONS) website and are international comparisons of productivity. You can find the <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/bulletins/internationalcomparisonsofproductivityfinalestimates/2015">raw data here</a>, and I’m using the data behind their Figure 4. Although the page has an interactive feature, a hover which tells you the values in cross-section, the plot is hard to read if (as the article presumes) you’re interested mostly in the UK relative to the other countries. We’ll fix that later. Personally, I’m not a fan of the horizontal guide lines so I’ll be omitting those too.</p>
-</section>
-<section id="the-code" class="level3">
-<h3 class="anchored" data-anchor-id="the-code">The code</h3>
-<p>Let’s see some code! Import the required libraries, and load up the style file for Matplotlib:</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;">import</span> os</span>
-<span id="cb4-2"><span class="im" style="color: #00769E;">import</span> numpy <span class="im" style="color: #00769E;">as</span> np</span>
-<span id="cb4-3"><span class="im" style="color: #00769E;">import</span> pandas <span class="im" style="color: #00769E;">as</span> pd</span>
-<span id="cb4-4"><span class="im" style="color: #00769E;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;">as</span> plt</span>
-<span id="cb4-5"><span class="im" style="color: #00769E;">from</span> matplotlib.ticker <span class="im" style="color: #00769E;">import</span> ScalarFormatter,AutoMinorLocator</span>
-<span id="cb4-6"><span class="im" style="color: #00769E;">import</span> matplotlib <span class="im" style="color: #00769E;">as</span> mpl</span>
-<span id="cb4-7"><span class="co" style="color: #5E5E5E;">#===========================================================</span></span>
-<span id="cb4-8"><span class="co" style="color: #5E5E5E;"># Directory and filename; style file open</span></span>
-<span id="cb4-9"><span class="co" style="color: #5E5E5E;">#===========================================================</span></span>
-<span id="cb4-10"><span class="co" style="color: #5E5E5E;"># Change to the directory which contains the current script</span></span>
-<span id="cb4-11">dirFile <span class="op" style="color: #5E5E5E;">=</span> os.path.dirname(os.path.join(<span class="st" style="color: #20794D;">'YourDirHere'</span>,</span>
-<span id="cb4-12">                          <span class="st" style="color: #20794D;">'NicePlotProductivity.py'</span>))</span>
-<span id="cb4-13"><span class="co" style="color: #5E5E5E;"># Load style file</span></span>
-<span id="cb4-14">plt.style.use(os.path.join(dirFile, <span class="st" style="color: #20794D;">'PaperDoubleFig.mplstyle'</span>))</span>
-<span id="cb4-15"><span class="co" style="color: #5E5E5E;"># Make some style choices for plotting</span></span>
-<span id="cb4-16">colourWheel <span class="op" style="color: #5E5E5E;">=</span>[<span class="st" style="color: #20794D;">'#329932'</span>,</span>
-<span id="cb4-17">            <span class="st" style="color: #20794D;">'#ff6961'</span>,</span>
-<span id="cb4-18">            <span class="st" style="color: #20794D;">'b'</span>,</span>
-<span id="cb4-19">            <span class="st" style="color: #20794D;">'#6a3d9a'</span>,</span>
-<span id="cb4-20">            <span class="st" style="color: #20794D;">'#fb9a99'</span>,</span>
-<span id="cb4-21">            <span class="st" style="color: #20794D;">'#e31a1c'</span>,</span>
-<span id="cb4-22">            <span class="st" style="color: #20794D;">'#fdbf6f'</span>,</span>
-<span id="cb4-23">            <span class="st" style="color: #20794D;">'#ff7f00'</span>,</span>
-<span id="cb4-24">            <span class="st" style="color: #20794D;">'#cab2d6'</span>,</span>
-<span id="cb4-25">            <span class="st" style="color: #20794D;">'#6a3d9a'</span>,</span>
-<span id="cb4-26">            <span class="st" style="color: #20794D;">'#ffff99'</span>,</span>
-<span id="cb4-27">            <span class="st" style="color: #20794D;">'#b15928'</span>,</span>
-<span id="cb4-28">            <span class="st" style="color: #20794D;">'#67001f'</span>,</span>
-<span id="cb4-29">            <span class="st" style="color: #20794D;">'#b2182b'</span>,</span>
-<span id="cb4-30">            <span class="st" style="color: #20794D;">'#d6604d'</span>,</span>
-<span id="cb4-31">            <span class="st" style="color: #20794D;">'#f4a582'</span>,</span>
-<span id="cb4-32">            <span class="st" style="color: #20794D;">'#fddbc7'</span>,</span>
-<span id="cb4-33">            <span class="st" style="color: #20794D;">'#f7f7f7'</span>,</span>
-<span id="cb4-34">            <span class="st" style="color: #20794D;">'#d1e5f0'</span>,</span>
-<span id="cb4-35">            <span class="st" style="color: #20794D;">'#92c5de'</span>,</span>
-<span id="cb4-36">            <span class="st" style="color: #20794D;">'#4393c3'</span>,</span>
-<span id="cb4-37">            <span class="st" style="color: #20794D;">'#2166ac'</span>,</span>
-<span id="cb4-38">            <span class="st" style="color: #20794D;">'#053061'</span>]</span>
-<span id="cb4-39">dashesStyles <span class="op" style="color: #5E5E5E;">=</span> [[<span class="dv" style="color: #AD0000;">3</span>,<span class="dv" style="color: #AD0000;">1</span>],</span>
-<span id="cb4-40">            [<span class="dv" style="color: #AD0000;">1000</span>,<span class="dv" style="color: #AD0000;">1</span>],</span>
-<span id="cb4-41">            [<span class="dv" style="color: #AD0000;">2</span>,<span class="dv" style="color: #AD0000;">1</span>,<span class="dv" style="color: #AD0000;">10</span>,<span class="dv" style="color: #AD0000;">1</span>],</span>
-<span id="cb4-42">            [<span class="dv" style="color: #AD0000;">4</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>]]</span>
-<span id="cb4-43"><span class="co" style="color: #5E5E5E;"># Point to the data</span></span>
-<span id="cb4-44">fileName <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">'rftxlicp1017unlinked.xls'</span></span></code></pre></div>
-<p>You’ll notice that I’ve also defined <code>colourWheel</code> and <code>dashesStyles</code>. These are for plotting, and encode different colours and line dashes respectively. Each line in the time series plot will be differentiated by iterating over both. The colours originally come from <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">colour brewer</a>, with a few additions and changes. There are more colours than are needed, but this set of colours can be used in other plots, or for qualitative choropleths.</p>
-<p>Next, read in the data and process it. Here’s one I made earlier:</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;">#===========================================================</span></span>
-<span id="cb5-2"><span class="co" style="color: #5E5E5E;"># Read in and prep the data</span></span>
-<span id="cb5-3"><span class="co" style="color: #5E5E5E;">#===========================================================</span></span>
-<span id="cb5-4">df <span class="op" style="color: #5E5E5E;">=</span> pd.read_excel(os.path.join(dirFile,fileName),</span>
-<span id="cb5-5">                  sheetname<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'Table 4'</span>)</span>
-<span id="cb5-6">df <span class="op" style="color: #5E5E5E;">=</span> df.iloc[<span class="dv" style="color: #AD0000;">3</span>:,:]</span>
-<span id="cb5-7">df <span class="op" style="color: #5E5E5E;">=</span> df.rename(columns<span class="op" style="color: #5E5E5E;">=</span><span class="bu" style="color: null;">dict</span>(<span class="bu" style="color: null;">zip</span>(df.columns,df.iloc[<span class="dv" style="color: #AD0000;">0</span>,:])))</span>
-<span id="cb5-8">df <span class="op" style="color: #5E5E5E;">=</span> df.iloc[<span class="dv" style="color: #AD0000;">2</span>:,:]</span>
-<span id="cb5-9">df <span class="op" style="color: #5E5E5E;">=</span> df.rename(columns<span class="op" style="color: #5E5E5E;">=</span>{np.nan:<span class="st" style="color: #20794D;">'Year'</span>}).set_index(<span class="st" style="color: #20794D;">'Year'</span>)</span>
-<span id="cb5-10">df <span class="op" style="color: #5E5E5E;">=</span> df.dropna()</span>
-<span id="cb5-11"><span class="co" style="color: #5E5E5E;"># Take a look to make sure this has worked nicely</span></span>
-<span id="cb5-12">df.head()</span></code></pre></div>
-<p>which produces:</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Canada</th>
-<th>France</th>
-<th>Germany</th>
-<th>Italy</th>
-<th>Japan</th>
-<th>UK</th>
-<th>US</th>
-<th>G7</th>
-<th>G7 exc. UK</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Year</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1995</td>
-<td>87</td>
-<td>86.2</td>
-<td>86.7</td>
-<td>94.6</td>
-<td>86.2</td>
-<td>80.7</td>
-<td>79.8</td>
-<td>83</td>
-<td>83.2</td>
-</tr>
-<tr class="odd">
-<td>1996</td>
-<td>87.6</td>
-<td>87.2</td>
-<td>87.7</td>
-<td>95.3</td>
-<td>88.5</td>
-<td>82</td>
-<td>81.7</td>
-<td>84.6</td>
-<td>84.8</td>
-</tr>
-<tr class="even">
-<td>1997</td>
-<td>89.5</td>
-<td>88.8</td>
-<td>89.7</td>
-<td>96.6</td>
-<td>88.4</td>
-<td>84</td>
-<td>83.5</td>
-<td>86.1</td>
-<td>86.3</td>
-</tr>
-<tr class="odd">
-<td>1998</td>
-<td>90.7</td>
-<td>90.5</td>
-<td>90.1</td>
-<td>97.2</td>
-<td>88</td>
-<td>85.8</td>
-<td>86</td>
-<td>87.7</td>
-<td>87.8</td>
-</tr>
-<tr class="even">
-<td>1999</td>
-<td>93</td>
-<td>91.8</td>
-<td>92.3</td>
-<td>97.6</td>
-<td>88.5</td>
-<td>87.6</td>
-<td>88.7</td>
-<td>89.7</td>
-<td>89.8</td>
-</tr>
-</tbody>
-</table>
-<p>so it looks like everything has been processed correctly. Now onto the plotting:</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">plt.close(<span class="st" style="color: #20794D;">'all'</span>)</span>
-<span id="cb6-2">fig, ax <span class="op" style="color: #5E5E5E;">=</span> plt.subplots()</span>
-<span id="cb6-3"><span class="cf" style="color: #003B4F;">for</span> j,series <span class="kw" style="color: #003B4F;">in</span> <span class="bu" style="color: null;">enumerate</span>(df.columns[:<span class="op" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">2</span>]):</span>
-<span id="cb6-4">    <span class="cf" style="color: #003B4F;">if</span>(series<span class="op" style="color: #5E5E5E;">==</span><span class="st" style="color: #20794D;">'UK'</span>):</span>
-<span id="cb6-5">        alphaVal <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1.</span></span>
-<span id="cb6-6">        linethick<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">5</span></span>
-<span id="cb6-7">    <span class="cf" style="color: #003B4F;">else</span>:</span>
-<span id="cb6-8">        alphaVal <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">0.6</span></span>
-<span id="cb6-9">        linethick <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3.5</span></span>
-<span id="cb6-10">    ax.plot(df[series].index,</span>
-<span id="cb6-11">                df[series]<span class="op" style="color: #5E5E5E;">/</span><span class="fl" style="color: #AD0000;">100.</span>,</span>
-<span id="cb6-12">                color<span class="op" style="color: #5E5E5E;">=</span>colourWheel[j<span class="op" style="color: #5E5E5E;">%</span><span class="bu" style="color: null;">len</span>(colourWheel)],</span>
-<span id="cb6-13">                linestyle <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">'-'</span>,</span>
-<span id="cb6-14">                dashes<span class="op" style="color: #5E5E5E;">=</span>dashesStyles[j<span class="op" style="color: #5E5E5E;">%</span><span class="bu" style="color: null;">len</span>(dashesStyles)],</span>
-<span id="cb6-15">                lw<span class="op" style="color: #5E5E5E;">=</span>linethick,</span>
-<span id="cb6-16">                label<span class="op" style="color: #5E5E5E;">=</span>series,</span>
-<span id="cb6-17">                alpha<span class="op" style="color: #5E5E5E;">=</span>alphaVal)</span>
-<span id="cb6-18">ax.set_xlabel(<span class="st" style="color: #20794D;">''</span>)</span>
-<span id="cb6-19">ax.yaxis.set_major_formatter(ScalarFormatter())</span>
-<span id="cb6-20">ax.yaxis.major.formatter._useMathText <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">True</span></span>
-<span id="cb6-21">ax.yaxis.set_minor_locator(  AutoMinorLocator(<span class="dv" style="color: #AD0000;">5</span>))</span>
-<span id="cb6-22">ax.xaxis.set_minor_locator(  AutoMinorLocator(<span class="dv" style="color: #AD0000;">5</span>))</span>
-<span id="cb6-23">ax.yaxis.set_label_coords(<span class="fl" style="color: #AD0000;">0.63</span>,<span class="fl" style="color: #AD0000;">1.01</span>)</span>
-<span id="cb6-24">ax.yaxis.tick_right()</span>
-<span id="cb6-25">nameOfPlot <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">'GDP per hour (constant prices, indexed to 2007)'</span></span>
-<span id="cb6-26">plt.ylabel(nameOfPlot,rotation<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">0</span>)</span>
-<span id="cb6-27">ax.legend(frameon<span class="op" style="color: #5E5E5E;">=</span><span class="va" style="color: #111111;">False</span>, loc<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'upper left'</span>,ncol<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">2</span>,handlelength<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">4</span>)</span>
-<span id="cb6-28">plt.savefig(os.path.join(dirFile,<span class="st" style="color: #20794D;">'ProdCountries.pdf'</span>),dpi<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">300</span>)</span>
-<span id="cb6-29">plt.show()</span></code></pre></div>
-<p>Here’s the plot which comes out, necessarily rendered here as a png but saved as a pdf if you use the code above:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://aeturrell.github.io/markov-wanderer/posts/publication-quality-plots-in-python/ProdCountries.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">GDP per hour across G7 countries</figcaption><p></p>
-</figure>
-</div>
-<p>The code looks more complicated than just using <code>df.plot()</code> but we get a lot for that extra complexity, including: the UK productivity time series being emphasised relative to those of the other countries, each country having a unique combination of colour and dash, the number of tick marks being sensible, only individual countries being plotted (<code>df.columns[:-2]</code> omits the two G7 related columns), and the y-axis ticks labels appearing on the right-hand side (which I think looks better for time series plots). Note that I’ve specified dpi=300 to set the resolution to what is often the <em>minimum</em> for journal submission.</p>
-<p>I mentioned latex in the post title. Assuming you have the full <a href="https://miktex.org/">Miktex distribution</a> installed (for example), then adding in latex is as easy as putting it into the title or label strings so that</p>
-<pre class="text"><code>r"$\frac{\phi}{\zeta}$"</code></pre>
-<p>gives</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Cphi%7D%7B%5Czeta%7D"></p>
-<p>in the figure. This will render just like the other text in the figure.</p>
-<p>No doubt there is a better way of packaging some of this up for use in other examples. As an alternative, <a href="https://seaborn.pydata.org/">Seaborn</a> is a fantastic tool for quick, easy, good-looking data visualisation in Python but for journal articles, a straighter, plainer style like this may be more appropriate.</p>
-
-
-</section>
-
- ]]></description>
-  <category>research</category>
-  <category>visualisation</category>
-  <category>code</category>
-  <category>python</category>
-  <guid>https://aeturrell.github.io/markov-wanderer/posts/publication-quality-plots-in-python/index.html</guid>
-  <pubDate>Wed, 31 Jan 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://aeturrell.github.io/markov-wanderer/posts/publication-quality-plots-in-python/ProdCountries.png" medium="image" type="image/png" height="89" width="144"/>
 </item>
 </channel>
 </rss>

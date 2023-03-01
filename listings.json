@@ -2,6 +2,7 @@
   {
     "listing": "/archive.html",
     "items": [
+      "/posts/data-science-maturity/data-science-maturity.html",
       "/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
       "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
@@ -29,6 +30,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/data-science-maturity/data-science-maturity.html",
       "/posts/managing-public-sector-knowledge/managing-public-sector-knowledge.html",
       "/posts/why-you-shouldnt-code/why-you-shouldnt-code.html",
       "/posts/the-prize-with-apis/the-prize-with-apis.html",
